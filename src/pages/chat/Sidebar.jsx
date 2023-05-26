@@ -7,7 +7,7 @@ const Sidebar = () => {
       <div className="flex h-screen w-full flex-col bg-white ">
         <div className="flex items-center justify-center py-2">
           <img
-            src="/public/Main_Logo.png"
+            src="https://res.cloudinary.com/ds6spmr71/image/upload/v1685127006/chatify/Main_Logo_xqadjz.png"
             alt="Main Logo"
             className="my-2 h-12"
           />

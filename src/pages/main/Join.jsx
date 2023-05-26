@@ -23,7 +23,11 @@ const Join = () => {
       <div className="w-96 rounded bg-white p-6 shadow">
         <div className="mb-14 flex w-full justify-center">
           <div className="h-24 w-24 overflow-hidden rounded-full border border-blue-400">
-            <img src="/logo.png" className="w-full" alt="Logo" />
+            <img
+              src="https://res.cloudinary.com/ds6spmr71/image/upload/v1685127006/chatify/logo_ewamcb.png"
+              className="w-full"
+              alt="Logo"
+            />
           </div>
         </div>
         <h1 className="mb-5 text-xl font-semibold">Join Chatify</h1>
