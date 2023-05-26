@@ -1,0 +1,104 @@
+{
+  "users": [
+    {
+      "profilePhoto": "https://source.unsplash.com/random/200x200?user1",
+      "name": "John Doe",
+      "message": "Hello! How are you?"
+    },
+    {
+      "profilePhoto": "https://source.unsplash.com/random/200x200?user2",
+      "name": "Jane Smith",
+      "message": "Can we meet tomorrow?"
+    },
+    {
+      "profilePhoto": "https://source.unsplash.com/random/200x200?user3",
+      "name": "Mike Johnson",
+      "message": "See you later!"
+    },
+    {
+      "profilePhoto": "https://source.unsplash.com/random/200x200?user4",
+      "name": "Sarah Brown",
+      "message": "Group chat"
+    },
+    {
+      "profilePhoto": "https://source.unsplash.com/random/200x200?user5",
+      "name": "Alex Davis",
+      "message": "What's up?"
+    },
+    {
+      "profilePhoto": "https://source.unsplash.com/random/200x200?user6",
+      "name": "Emily Wilson",
+      "message": "Long time no see!"
+    },
+    {
+      "profilePhoto": "https://source.unsplash.com/random/200x200?user7",
+      "name": "Daniel Thompson",
+      "message": "Let's grab a coffee"
+    },
+    {
+      "profilePhoto": "https://source.unsplash.com/random/200x200?user8",
+      "name": "Olivia Green",
+      "message": "How was your day?"
+    },
+    {
+      "profilePhoto": "https://source.unsplash.com/random/200x200?user9",
+      "name": "Michael Lee",
+      "message": "Looking forward to the weekend"
+    },
+    {
+      "profilePhoto": "https://source.unsplash.com/random/200x200?user10",
+      "name": "Sophia Martinez",
+      "message": "Busy day ahead!"
+    },
+    {
+      "profilePhoto": "https://source.unsplash.com/random/200x200?user11",
+      "name": "William Johnson",
+      "message": "Have a great day!"
+    },
+    {
+      "profilePhoto": "https://source.unsplash.com/random/200x200?user12",
+      "name": "Emma Anderson",
+      "message": "Missing you!"
+    },
+    {
+      "profilePhoto": "https://source.unsplash.com/random/200x200?user13",
+      "name": "James Wilson",
+      "message": "Let's catch up soon"
+    },
+    {
+      "profilePhoto": "https://source.unsplash.com/random/200x200?user14",
+      "name": "Ava Davis",
+      "message": "Movie night?"
+    },
+    {
+      "profilePhoto": "https://source.unsplash.com/random/200x200?user15",
+      "name": "Ethan Clark",
+      "message": "See you at the party!"
+    },
+    {
+      "profilePhoto": "https://source.unsplash.com/random/200x200?user16",
+      "name": "Mia Thompson",
+      "message": "Happy birthday!"
+    },
+    {
+      "profilePhoto": "https://source.unsplash.com/random/200x200?user17",
+      "name": "Alexander Johnson",
+      "message": "Let's go hiking"
+    },
+    {
+      "profilePhoto": "https://source.unsplash.com/random/200x200?user18",
+      "name": "Grace Wilson",
+      "message": "Dinner plans?"
+    },
+    {
+      "profilePhoto": "https://source.unsplash.com/random/200x200?user19",
+      "name": "Benjamin Smith",
+      "message": "Game night!"
+    },
+    {
+      "profilePhoto": "https://source.unsplash.com/random/200x200?user20",
+      "name": "Lily Davis",
+      "message": "Vacation time!"
+    }
+  ]
+}
