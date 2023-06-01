@@ -32,7 +32,7 @@ const Sidebar = () => {
           <div className="flex flex-col">
             {UserData.users.map((user, index) => (
               <div
-                className="flex cursor-pointer gap-3 border-b border-blue-100 bg-white px-4 py-3 hover:bg-blue-50"
+                className="flex cursor-pointer gap-3 border-b border-blue-100 bg-white px-4 py-3 hover:bg-gray-100"
                 key={`user-${index}`}
               >
                 <img

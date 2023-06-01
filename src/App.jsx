@@ -1,12 +1,7 @@
 /* eslint-disable no-unused-vars */
-import { io } from "socket.io-client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Join from "./pages/main/Join";
 import Chat from "./pages/chat/Chat";
-
-const socket = io("http://localhost:8000", {
-  transports: ["websocket"],
-});
 
 const App = () => {
   // socket.on("connect", () => {

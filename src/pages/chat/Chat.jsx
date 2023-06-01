@@ -1,17 +1,49 @@
 import { useEffect } from "react";
 import Sidebar from "./Sidebar";
 import { useNavigate } from "react-router-dom";
+import { io } from "socket.io-client";
 
 /* eslint-disable react/no-unescaped-entities */
 const Chat = () => {
   const navigate = useNavigate();
   const userName = localStorage.getItem("userName");
 
+  console.log(userName);
+
+  const logoutUserHandler = () => {
+    localStorage.removeItem("userName");
+    navigate("/");
+  };
+
   useEffect(() => {
     if (!userName) {
       navigate("/");
     }
   }, [navigate, userName]);
+
+  useEffect(() => {
+    const socket = io("http://localhost:8000", {
+      transports: ["websocket"],
+    });
+    socket.on("connect", () => {
+      alert("Connected to server");
+    });
+
+    socket.emit("joined", { userName });
+
+    socket.on("welcome", (data) => {
+      console.log(data.user, data.message);
+    });
+
+    socket.on("userJoined", (data) => {
+      console.log(data.user, data.message);
+    });
+
+    return () => {
+      socket.emit("disconnectUser");
+      socket.off();
+    };
+  }, [userName]);
   return (
     <>
       <div className="flex h-screen w-full justify-center bg-white">
@@ -19,10 +51,64 @@ const Chat = () => {
           <Sidebar />
         </div>
         <div className="flex  w-9/12 flex-col">
-          <div className="flex flex-grow justify-end bg-blue-500 p-4">
-            <h1 className="text-xl font-semibold text-white">{userName}</h1>
+          <div className="flex flex-grow justify-end gap-3 bg-blue-500 p-3">
+            <h1 className="text-xl font-semibold capitalize text-white">
+              {userName}
+            </h1>
+            <span
+              className="cursor-pointer rounded bg-red-600 p-1 px-2 font-semibold text-white hover:bg-red-500"
+              onClick={logoutUserHandler}
+            >
+              Logout
+            </span>
           </div>
           <div className="flex-grow overflow-y-auto bg-gray-100 p-4">
+            <div className="mb-2 flex justify-end">
+              <div className="w-5/12 rounded-lg bg-blue-500 p-3 text-white shadow">
+                Hey, have you heard about the MERN stack?
+              </div>
+            </div>
+            <div className="mb-2 flex justify-start">
+              <div className="w-5/12 rounded-lg bg-gray-200 p-3 shadow">
+                Yeah, I have! It's an awesome tech stack for web development.
+                I've been using it for a while now. What do you think of it?
+              </div>
+            </div>
+            <div className="mb-2 flex justify-end">
+              <div className="w-5/12 rounded-lg bg-blue-500 p-3 text-white shadow">
+                I think it's great! The combination of MongoDB, Express.js,
+                React, and Node.js is powerful. It allows for seamless
+                full-stack JavaScript development. How about you? Have you
+                worked on any projects using MERN stack?
+              </div>
+            </div>
+            <div className="mb-2 flex justify-start">
+              <div className="w-5/12 rounded-lg bg-gray-200 p-3 shadow">
+                Yes, I've built a few projects with MERN stack. It's impressive
+                how everything works together. The frontend with React is super
+                smooth, and the backend with Node.js and Express.js is really
+                flexible. Plus, MongoDB is great for handling data. Overall, I'm
+                a big fan of MERN stack!
+              </div>
+            </div>
+            <div className="mb-2 flex justify-end">
+              <div className="w-5/12 rounded-lg bg-blue-500 p-3 text-white shadow">
+                Absolutely! It's a developer's dream to have such a cohesive
+                tech stack. Plus, the vibrant community around MERN stack
+                provides great support and resources. What kind of projects do
+                you think are best suited for MERN stack?
+              </div>
+            </div>
+            <div className="mb-2 flex justify-start">
+              <div className="w-5/12 rounded-lg bg-gray-200 p-3 shadow">
+                MERN stack is perfect for building dynamic web applications and
+                SPAs. Its real-time capabilities and ease of development make it
+                ideal for social media platforms, e-commerce sites, and
+                data-driven applications. The versatility of JavaScript makes it
+                even more convenient. Have you explored any other stacks apart
+                from MERN?
+              </div>
+            </div>
             <div className="mb-2 flex justify-end">
               <div className="w-5/12 rounded-lg bg-blue-500 p-3 text-white shadow">
                 Hey, have you heard about the MERN stack?
