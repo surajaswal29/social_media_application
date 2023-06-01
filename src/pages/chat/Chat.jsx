@@ -1,14 +1,33 @@
-import { useEffect } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useState, useEffect, useCallback } from "react";
 import Sidebar from "./Sidebar";
 import { useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
+import ChatMsg from "./ChatMsg";
+import ReactScrollToBottom from "react-scroll-to-bottom";
+
+let socket;
 
 /* eslint-disable react/no-unescaped-entities */
 const Chat = () => {
+  const [message, setMessage] = useState("");
+  const [id, setId] = useState("");
+
+  const msgData = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+    22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37,
+  ];
+
   const navigate = useNavigate();
   const userName = localStorage.getItem("userName");
 
-  console.log(userName);
+  const handleMessageChange = useCallback((e) => {
+    setMessage(e.target.value);
+  }, []);
+
+  const sendMessageHandler = () => {
+    socket.emit("message", { message, id });
+  };
 
   const logoutUserHandler = () => {
     localStorage.removeItem("userName");
@@ -22,36 +41,51 @@ const Chat = () => {
   }, [navigate, userName]);
 
   useEffect(() => {
-    const socket = io("http://localhost:8000", {
+    socket = io("http://localhost:8000", {
       transports: ["websocket"],
     });
+
     socket.on("connect", () => {
-      alert("Connected to server");
+      alert(`Connected to server ${socket.id}`);
+      setId(socket.id);
     });
 
     socket.emit("joined", { userName });
 
     socket.on("welcome", (data) => {
-      console.log(data.user, data.message);
+      console.log(`${data.user}: ${data.message}`);
+      alert(`${data.user}: ${data.message}`);
+      // console.log(data.main);
     });
 
     socket.on("userJoined", (data) => {
-      console.log(data.user, data.message);
+      console.log(`${data.user}: ${data.message}`);
+    });
+
+    socket.on("user-left", (data) => {
+      console.log(`${data.user}: ${data.message}`);
     });
 
     return () => {
-      socket.emit("disconnectUser");
+      socket.emit("user-disconnected");
       socket.off();
     };
-  }, [userName]);
+  }, []);
+
+  useEffect(() => {
+    socket.on("sendMessage", (data) => {
+      console.log(`${data.user}: ${data.message} ID is: ${data.id}`);
+    });
+  }, []);
+
   return (
     <>
       <div className="flex h-screen w-full justify-center bg-white">
-        <div className="w-3/12">
+        <div className="hidden w-3/12 sm:block sm:w-[45%] md:w-4/12">
           <Sidebar />
         </div>
-        <div className="flex  w-9/12 flex-col">
-          <div className="flex flex-grow justify-end gap-3 bg-blue-500 p-3">
+        <div className="flex w-full flex-col sm:w-8/12 lg:w-9/12">
+          <div className="flex justify-end gap-3 bg-blue-500 p-3">
             <h1 className="text-xl font-semibold capitalize text-white">
               {userName}
             </h1>
@@ -62,107 +96,28 @@ const Chat = () => {
               Logout
             </span>
           </div>
-          <div className="flex-grow overflow-y-auto bg-gray-100 p-4">
-            <div className="mb-2 flex justify-end">
-              <div className="w-5/12 rounded-lg bg-blue-500 p-3 text-white shadow">
-                Hey, have you heard about the MERN stack?
-              </div>
-            </div>
-            <div className="mb-2 flex justify-start">
-              <div className="w-5/12 rounded-lg bg-gray-200 p-3 shadow">
-                Yeah, I have! It's an awesome tech stack for web development.
-                I've been using it for a while now. What do you think of it?
-              </div>
-            </div>
-            <div className="mb-2 flex justify-end">
-              <div className="w-5/12 rounded-lg bg-blue-500 p-3 text-white shadow">
-                I think it's great! The combination of MongoDB, Express.js,
-                React, and Node.js is powerful. It allows for seamless
-                full-stack JavaScript development. How about you? Have you
-                worked on any projects using MERN stack?
-              </div>
-            </div>
-            <div className="mb-2 flex justify-start">
-              <div className="w-5/12 rounded-lg bg-gray-200 p-3 shadow">
-                Yes, I've built a few projects with MERN stack. It's impressive
-                how everything works together. The frontend with React is super
-                smooth, and the backend with Node.js and Express.js is really
-                flexible. Plus, MongoDB is great for handling data. Overall, I'm
-                a big fan of MERN stack!
-              </div>
-            </div>
-            <div className="mb-2 flex justify-end">
-              <div className="w-5/12 rounded-lg bg-blue-500 p-3 text-white shadow">
-                Absolutely! It's a developer's dream to have such a cohesive
-                tech stack. Plus, the vibrant community around MERN stack
-                provides great support and resources. What kind of projects do
-                you think are best suited for MERN stack?
-              </div>
-            </div>
-            <div className="mb-2 flex justify-start">
-              <div className="w-5/12 rounded-lg bg-gray-200 p-3 shadow">
-                MERN stack is perfect for building dynamic web applications and
-                SPAs. Its real-time capabilities and ease of development make it
-                ideal for social media platforms, e-commerce sites, and
-                data-driven applications. The versatility of JavaScript makes it
-                even more convenient. Have you explored any other stacks apart
-                from MERN?
-              </div>
-            </div>
-            <div className="mb-2 flex justify-end">
-              <div className="w-5/12 rounded-lg bg-blue-500 p-3 text-white shadow">
-                Hey, have you heard about the MERN stack?
-              </div>
-            </div>
-            <div className="mb-2 flex justify-start">
-              <div className="w-5/12 rounded-lg bg-gray-200 p-3 shadow">
-                Yeah, I have! It's an awesome tech stack for web development.
-                I've been using it for a while now. What do you think of it?
-              </div>
-            </div>
-            <div className="mb-2 flex justify-end">
-              <div className="w-5/12 rounded-lg bg-blue-500 p-3 text-white shadow">
-                I think it's great! The combination of MongoDB, Express.js,
-                React, and Node.js is powerful. It allows for seamless
-                full-stack JavaScript development. How about you? Have you
-                worked on any projects using MERN stack?
-              </div>
-            </div>
-            <div className="mb-2 flex justify-start">
-              <div className="w-5/12 rounded-lg bg-gray-200 p-3 shadow">
-                Yes, I've built a few projects with MERN stack. It's impressive
-                how everything works together. The frontend with React is super
-                smooth, and the backend with Node.js and Express.js is really
-                flexible. Plus, MongoDB is great for handling data. Overall, I'm
-                a big fan of MERN stack!
-              </div>
-            </div>
-            <div className="mb-2 flex justify-end">
-              <div className="w-5/12 rounded-lg bg-blue-500 p-3 text-white shadow">
-                Absolutely! It's a developer's dream to have such a cohesive
-                tech stack. Plus, the vibrant community around MERN stack
-                provides great support and resources. What kind of projects do
-                you think are best suited for MERN stack?
-              </div>
-            </div>
-            <div className="mb-2 flex justify-start">
-              <div className="w-5/12 rounded-lg bg-gray-200 p-3 shadow">
-                MERN stack is perfect for building dynamic web applications and
-                SPAs. Its real-time capabilities and ease of development make it
-                ideal for social media platforms, e-commerce sites, and
-                data-driven applications. The versatility of JavaScript makes it
-                even more convenient. Have you explored any other stacks apart
-                from MERN?
-              </div>
-            </div>
+          <div className="w-full flex-grow overflow-y-auto bg-gray-100 p-4">
+            <ReactScrollToBottom
+              className="h-full w-full"
+              followButtonClassName="bg-blue-500 p-2 rounded-md text-white"
+              initialScrollBehavior="smooth"
+            >
+              {msgData.map((msg, index) => (
+                <ChatMsg key={`msg-${index}`} message={msg} />
+              ))}
+            </ReactScrollToBottom>
           </div>
           <div className="flex bg-gray-200 p-4">
             <input
               type="text"
               className="mr-2 flex-grow rounded-md bg-white p-2 focus:outline-none"
               placeholder="Type a message..."
+              onChange={handleMessageChange}
             />
-            <button className="rounded-md bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 focus:outline-none">
+            <button
+              className="rounded-md bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 focus:outline-none"
+              onClick={sendMessageHandler}
+            >
               Send
             </button>
           </div>
