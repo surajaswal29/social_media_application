@@ -17,6 +17,13 @@ console.log(process.env.DB_URL)
 // connect to Database
 connectDB()
 
+app.set("view engine", "pug")
+app.set("views", "./views")
+
+app.get("/", (req: Request, res: Response) => {
+  res.render("index", { title: "Hello, Chatify! 👋🏻" })
+})
+
 app.post("/register", async (req: Request<{}, { RegisterRequestBody: any }, {}, {}>, res: Response) => {
   try {
     const user_dt = await User.create(req.body)
