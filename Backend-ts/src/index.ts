@@ -1,29 +1,37 @@
 import express, { Request, Response } from "express"
-
 import dotenv from "dotenv"
 import connectDB from "./config/database"
-dotenv.config()
-
 import User from "./models/userModel"
 import { RegisterRequestBody } from "./types/userTypes"
+import path from "path"
+import router from "./routes"
+
+dotenv.config()
 
 const app = express()
 const PORT = process.env.PORT || 3000
 
-// express middlewares
+// Express middlewares
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-console.log(process.env.DB_URL)
-// connect to Database
+
+// Connect to Database
 connectDB()
 
-app.set("view engine", "pug")
-app.set("views", "./views")
+app.use(express.static(path.join(__dirname, "../views")))
+
+console.log(`1. => ${__dirname}`)
+// console.log(path)
+// console.log(Request)
+
+app.use("/api/v1", router)
 
 app.get("/", (req: Request, res: Response) => {
-  res.render("index", { title: "Hello, Chatify! 👋🏻" })
+  console.log(req)
+  res.sendFile(path.join(__dirname, "../views/index.html"))
 })
 
+// Adjusted the type for req.body directly
 app.post("/register", async (req: Request<{}, { RegisterRequestBody: any }, {}, {}>, res: Response) => {
   try {
     const user_dt = await User.create(req.body)
