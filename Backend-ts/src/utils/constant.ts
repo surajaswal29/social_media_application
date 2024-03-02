@@ -1,6 +1,7 @@
-import { HTMLMailTemplate, MinMaxLen } from "../types/userTypes"
+import { ApiResponse, HTMLMailTemplate, MinMaxLen } from "../types/userTypes"
 import jwt from "jsonwebtoken"
 import bcrypt from "bcrypt"
+import crypto from "crypto"
 
 export const USER_VALIDATION_MSG = {
   name: () => "Please provide a valid name",
@@ -102,4 +103,44 @@ export const VERIFY_PASSWORD = async (password: string, hash: string): Promise<b
     console.error(err)
     return false
   }
+}
+
+// encrypt data
+export const ENCRYPT_DATA = async (data: any): Promise<ApiResponse> => {
+  try {
+    const encKey = Buffer.from(process.env.ENCRYPTION_KEY as string, "hex")
+    const encIV = Buffer.from(process.env.ENCRYPTION_IV as string, "hex")
+
+    const generateEncryptedData = crypto.createCipheriv("aes-256-cbc", encKey, encIV)
+    let encryptedData = generateEncryptedData.update(JSON.stringify(data), "utf8", "hex")
+    encryptedData += generateEncryptedData.final("hex")
+
+    return {
+      status: "success",
+      code: 200,
+      data: encryptedData,
+    }
+  } catch (error: any) {
+    console.error(error)
+    return {
+      status: "fail",
+      code: 500,
+      msg: error.message,
+    }
+  }
+}
+
+// http status code
+export const HTTP_STATUS_CODE: { [key: string]: number } = {
+  OK: 200,
+  Created: 201,
+  Accepted: 202,
+  NoContent: 204,
+  BadRequest: 400,
+  Unauthorized: 401,
+  Forbidden: 403,
+  NotFound: 404,
+  MethodNotAllowed: 405,
+  InternalServerError: 500,
+  ServiceUnavailable: 503,
 }

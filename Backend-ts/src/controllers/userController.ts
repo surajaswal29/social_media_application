@@ -1,8 +1,9 @@
 import { Request, Response } from "express"
 import userModel from "../models/userModel"
-import { UserBody } from "../types/userTypes"
-import { GENERATE_LOGIN_TOKEN, VERIFY_PASSWORD } from "../utils/constant"
+import { AuthenticatedRequest, UserBody } from "../types/userTypes"
+import { ENCRYPT_DATA, GENERATE_LOGIN_TOKEN, VERIFY_PASSWORD } from "../utils/constant"
 
+// Create new user
 export const createUser = async (req: Request, res: Response) => {
   try {
     const { email, password, name }: UserBody = req.body
@@ -49,6 +50,7 @@ export const createUser = async (req: Request, res: Response) => {
   }
 }
 
+// login user
 export const loginUser = async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body
@@ -89,17 +91,28 @@ export const loginUser = async (req: Request, res: Response) => {
   }
 }
 
-export const get_users = async (req: Request, res: Response) => {
+// Get user info (private route)
+export const getUserInfo = async (req: AuthenticatedRequest, res: Response) => {
   try {
-    const users = await userModel.find().select("name email is_active login_token login_token_expire")
-    // console.log(users)
-    res.status(200).json({ status: "success", data: users })
-  } catch (error) {
+    const userInfoData = await userModel.findById(req.user.id)
+
+    if (!userInfoData) {
+      res.status(400).json({ msg: "Invalid credentials" })
+    }
+
+    const encryptData = await ENCRYPT_DATA(userInfoData)
+
+    return res.status(200).json(encryptData)
+  } catch (error: any) {
     console.log(error)
-    res.status(500).json({ msg: "Internal server error" })
+    return res.status(500).json({
+      status: "fail",
+      msg: error.message,
+    })
   }
 }
 
+// -----------------
 export const get_single_user = (req: Request, res: Response) => {
   try {
     res.status(200).json({ msg: "Single user" })

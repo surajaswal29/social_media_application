@@ -1,3 +1,5 @@
+import { Request } from "express"
+
 export interface UserBody {
   name: string
   email: string
@@ -13,6 +15,10 @@ export interface UserMail {
   subject: string
   text?: string
   html: HTMLMailTemplate
+}
+
+export interface AuthenticatedRequest extends Request {
+  user?: any
 }
 
 export interface HTMLMailTemplate {
@@ -31,4 +37,11 @@ export interface ChatBody {
 export interface chatResponse {
   status: string
   data: []
+}
+
+export interface ApiResponse {
+  status: string
+  code?: number
+  data?: any
+  msg?: string
 }
