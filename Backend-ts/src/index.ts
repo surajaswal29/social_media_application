@@ -1,55 +1,82 @@
 import express, { Request, Response } from "express"
 import dotenv from "dotenv"
 import connectDB from "./config/database"
-import User from "./models/userModel"
-import { RegisterRequestBody } from "./types/userTypes"
 import path from "path"
 import router from "./routes"
+import { Server, createServer } from "http"
+import { initSocketConfig } from "./socket"
+import chatModel from "./models/chatModel"
+import { chatResponse } from "./types/userTypes"
+// import { send_mail_user } from "./utils/mailer"
 
 dotenv.config()
 
 const app = express()
 const PORT = process.env.PORT || 3000
 
+const httpServer: Server = createServer(app)
+
 // Express middlewares
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-// Connect to Database
-connectDB()
+// --
+// connect to Db & socket
+;(async function () {
+  try {
+    await connectDB()
+    await initSocketConfig(httpServer).then(
+      (d) => {
+        // console.log(d)
+        console.log("socket is connected")
+      },
+      (e) => {
+        console.log(e)
+        throw new Error("Socket Config Error")
+      }
+    )
+  } catch (error) {
+    console.log(error)
+  }
+})()
 
+// serving static files
 app.use(express.static(path.join(__dirname, "../views")))
 
-console.log(`1. => ${__dirname}`)
-// console.log(path)
-// console.log(Request)
-
+// routes
 app.use("/api/v1", router)
 
-app.get("/", (req: Request, res: Response) => {
-  console.log(req)
-  res.sendFile(path.join(__dirname, "../views/index.html"))
-})
-
-// Adjusted the type for req.body directly
-app.post("/register", async (req: Request<{}, { RegisterRequestBody: any }, {}, {}>, res: Response) => {
+app.post("/api/v1/test", async (req: Request, res: Response) => {
   try {
-    const user_dt = await User.create(req.body)
+    const chat_dt = await chatModel.create(req.body)
 
-    if (!user_dt) {
-      // Explicitly end the function with 'return' after sending the response
-      return res.status(400).json({ message: "User not created" })
+    if (chat_dt) {
+      return res.status(200).json({
+        status: "success",
+        data: chat_dt,
+      })
+    } else {
+      return res.status(400).json({
+        status: "fail",
+        message: "chat not created",
+      })
     }
-    // No need for 'return' here as this is the last line of the try block
-    return res.status(200).json({ message: "User registered successfully" })
   } catch (error) {
-    console.error(error)
-    // Use 'return' to explicitly end the function after sending the response
-    return res.status(500).json({ message: "Server Error" })
+    console.log(error)
+    return {
+      status: "fail",
+      message: error,
+    }
   }
 })
 
-app.listen(PORT, () => {
+// send_mail_user({
+//   to: "thesurajaswal@gmail.com",
+//   subject: "testing",
+//   html: "<h1>hello</h1>",
+// })
+
+httpServer.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`)
   console.log(`Preview URL => http://localhost:${PORT}`)
 })
