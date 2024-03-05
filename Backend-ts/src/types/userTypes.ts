@@ -45,3 +45,7 @@ export interface ApiResponse {
   data?: any
   msg?: string
 }
+
+export interface CloudinaryFile extends Express.Multer.File {
+  buffer: Buffer
+}

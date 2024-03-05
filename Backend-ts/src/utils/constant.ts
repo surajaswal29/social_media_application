@@ -144,3 +144,5 @@ export const HTTP_STATUS_CODE: { [key: string]: number } = {
   InternalServerError: 500,
   ServiceUnavailable: 503,
 }
+
+export const MAX_FILE_SIZE = 2097152 //2mb

@@ -1,12 +1,13 @@
 import { Request, Response } from "express"
 import userModel from "../models/userModel"
-import { AuthenticatedRequest, UserBody } from "../types/userTypes"
+import * as UserTypes from "../types/userTypes"
 import { ENCRYPT_DATA, GENERATE_LOGIN_TOKEN, VERIFY_PASSWORD } from "../utils/constant"
+import { uploadToCloudinary } from "../utils/multerStorage"
 
 // Create new user
 export const createUser = async (req: Request, res: Response) => {
   try {
-    const { email, password, name }: UserBody = req.body
+    const { email, password, name }: UserTypes.UserBody = req.body
 
     // Check if email & password are provided
     if (!email || !password) {
@@ -92,7 +93,7 @@ export const loginUser = async (req: Request, res: Response) => {
 }
 
 // Get user info (private route)
-export const getUserInfo = async (req: AuthenticatedRequest, res: Response) => {
+export const getUserInfo = async (req: UserTypes.AuthenticatedRequest, res: Response) => {
   try {
     const userInfoData = await userModel.findById(req.user.id)
 
@@ -113,11 +114,25 @@ export const getUserInfo = async (req: AuthenticatedRequest, res: Response) => {
 }
 
 // -----------------
-export const get_single_user = (req: Request, res: Response) => {
+export const getSingleUser = (req: Request, res: Response) => {
   try {
     res.status(200).json({ msg: "Single user" })
   } catch (error) {
     console.log(error)
     res.status(500).json({ msg: "Internal server error" })
+  }
+}
+
+// upload files
+export const uploadProfileMedia = async (req: Request, res: Response) => {
+  try {
+    console.log(req.file)
+    const upload_file = await uploadToCloudinary(req)
+
+    console.log(upload_file)
+    return res.status(200).json(upload_file)
+  } catch (error) {
+    console.log(error)
+    return res.status(500).json({ msg: "Internal server error" })
   }
 }
