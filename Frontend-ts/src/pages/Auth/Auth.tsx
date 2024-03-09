@@ -4,7 +4,7 @@ import * as Types from "../../utility/types"
 import Login from "../../components/user/Login"
 
 const Join: React.FC<Types.UserAuthProps> = ({ theme }) => {
-  const [isLoginPage, setIsLoginPage] = useState<boolean>(false)
+  const [isLoginPage, setIsLoginPage] = useState(true)
 
   const switchForm = (e: Types.FormEvent) => {
     e.preventDefault()

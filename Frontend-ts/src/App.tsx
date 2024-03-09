@@ -1,18 +1,22 @@
 import { FC } from "react"
 import { useRoutes } from "react-router-dom"
-import Join from "./pages/main/Auth"
+import Auth from "./pages/Auth/Auth"
 import Chat from "./pages/chat/Chat"
+import Home from "./pages/main/Home"
 
-type Props = {
-  theme: string
-}
+// utils
+import * as Types from "./utility/types"
 
-const App: FC<Props> = () => {
+const App: FC<Types.RootAppProps> = () => {
   const theme: string = "light"
 
   // Defining routes as an array of objects
   const routes = [
-    { path: "/", element: <Join theme={theme} /> },
+    {
+      path: "/",
+      element: <Home theme={theme} />,
+    },
+    { path: "/auth", element: <Auth theme={theme} /> },
     { path: "/chat", element: <Chat theme={theme} /> },
     { path: "*", element: <div>Error: Page Does Not Exist</div> },
   ]

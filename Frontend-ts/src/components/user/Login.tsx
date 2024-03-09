@@ -1,6 +1,7 @@
 import { ChangeEvent, FC, useState } from "react"
 import { FaGoogle } from "react-icons/fa"
 import * as Types from "../../utility/types"
+import { useNavigate } from "react-router-dom"
 
 type Props = {
   theme: string
@@ -8,6 +9,7 @@ type Props = {
 }
 
 const Login: FC<Props> = ({ theme, switchForm }) => {
+  const navigate = useNavigate()
   console.log(theme)
   const [userData, setUserData] = useState({
     email: "",
@@ -20,10 +22,20 @@ const Login: FC<Props> = ({ theme, switchForm }) => {
     setUserData({ ...userData, [name]: value })
   }
 
+  // handle login
+  const handleLogin = (e: Types.FormEvent) => {
+    e.preventDefault()
+    console.log(userData)
+
+    if (userData.email === "suraj@gmail.com" && userData.password === "1234") {
+      navigate("/")
+    }
+  }
+
   return (
     <>
       <h1 className="mb-5 text-xl font-semibold">Log in to your account</h1>
-      <form>
+      <form onSubmit={handleLogin}>
         <div className="w-full">
           <label htmlFor="email" className="text-xs text-gray-600 font-medium">
             Email
@@ -37,7 +49,7 @@ const Login: FC<Props> = ({ theme, switchForm }) => {
           <input type="text" placeholder="Enter your password" className="mb-2 w-full rounded border border-gray-200 p-2 focus:border-blue-300 text-sm focus:outline-none" value={userData.password} name="password" onChange={handleInputChange} />
         </div>
 
-        <button type="button" className="w-full mt-4 rounded bg-teal-500 px-4 py-2 text-white hover:bg-teal-600 focus:outline-none">
+        <button type="submit" className="w-full mt-4 rounded bg-teal-500 px-4 py-2 text-white hover:bg-teal-600 focus:outline-none">
           Login
         </button>
         <div className="w-full flex justify-center mt-2">
