@@ -6,7 +6,7 @@ import { MdHome, MdOutlineExplore, MdNotifications, MdChat, MdSearch } from "rea
 
 const Navbar: FC<Types.NavbarProps> = () => {
   return (
-    <nav className="w-full flex items-center p-2 px-4 border bg-white">
+    <nav className="w-full flex items-center p-2 px-4 border bg-white sticky top-0">
       <div className="w-2/12">
         <div className="h-12">
           <img src={import.meta.env.VITE_MAIN_LOGO} alt="Uttara Logo" className="w-full h-full" />
@@ -34,8 +34,8 @@ const Navbar: FC<Types.NavbarProps> = () => {
       </div>
       <div className="w-4/12 px-4">
         <div className="w-full flex relative">
-          <input type="text" placeholder="Search" className="w-full rounded-full border border-slate-300 p-2 focus:outline-none" />
-          <button className="absolute rounded-full right-1 top-1 bg-teal-500 p-2 text-white hover:bg-teal-600 focus:outline-none">
+          <input type="text" placeholder="Search" className="w-full text-sm text-gray-800 rounded-full border border-slate-300 p-2 focus:outline-none" />
+          <button className="absolute rounded-full right-0 top-0 h-full p-2 focus:outline-none">
             <MdSearch size={18} />
           </button>
         </div>

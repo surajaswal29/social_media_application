@@ -27,3 +27,10 @@ export interface LinkProps {
   title: string
   activeClass?: string
 }
+
+export interface MediaPostHookProps {
+  theme: theme
+  isImage: boolean
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  data: any
+}

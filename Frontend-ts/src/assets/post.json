@@ -1,0 +1,141 @@
+[
+  {
+    "post_id": "1",
+    "type": "text",
+    "author": {
+      "user_id": "123",
+      "username": "user1",
+      "profile_image": "https://i.pravatar.cc/400?img=1",
+      "full_name": "Alice"
+    },
+    "content": "Today, when i was walking back home from my job, i figured that i should build the best social media template in ThemeForest. As soon as i got back, i started working on this fresh and new project. Any suggestions about where i could find some interesting resources for social media design? #webdesign #socialmedia"
+  },
+  {
+    "post_id": "2",
+    "type": "video",
+    "author": {
+      "user_id": "234",
+      "username": "user2",
+      "profile_image": "https://i.pravatar.cc/400?img=2",
+      "full_name": "Bob"
+    },
+    "url": [
+      "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+      "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
+    ],
+    "caption": "Beautiful sunset view from my balcony! 🌇 #Sunset #Nature"
+  },
+  {
+    "post_id": "3",
+    "type": "image",
+    "author": {
+      "user_id": "345",
+      "username": "user3",
+      "profile_image": "https://i.pravatar.cc/400?img=3",
+      "full_name": "Charlie"
+    },
+    "url": [
+      "https://cdn.pixabay.com/photo/2024/02/22/22/37/mountain-8590965_1280.jpg",
+      "https://cdn.pixabay.com/photo/2017/02/01/22/02/mountain-landscape-2031539_1280.jpg",
+      "https://cdn.pixabay.com/photo/2023/09/27/03/12/mountain-8278526_1280.jpg",
+      "https://cdn.pixabay.com/photo/2016/10/14/19/21/canyon-1740973_1280.jpg",
+      "https://cdn.pixabay.com/photo/2019/06/01/22/41/river-4245261_1280.jpg"
+    ],
+    "caption": "Check out this amazing video I captured during my trip! 📹 #Travel #Adventure"
+  },
+  {
+    "post_id": "4",
+    "type": "link",
+    "author": {
+      "user_id": "456",
+      "username": "user4",
+      "profile_image": "https://i.pravatar.cc/400?img=4",
+      "full_name": "David"
+    },
+    "url": "https://example.com/article",
+    "title": "Interesting article on AI advancements",
+    "description": "A fascinating read about recent developments in artificial intelligence. #AI #Technology"
+  },
+  {
+    "post_id": "5",
+    "type": "poll",
+    "author": {
+      "user_id": "567",
+      "username": "user5",
+      "profile_image": "https://i.pravatar.cc/400?img=5",
+      "full_name": "Eve"
+    },
+    "question": "What's your favorite programming language?",
+    "options": ["Python", "JavaScript", "Java", "C++"],
+    "hashtags": ["Programming", "Tech"]
+  },
+  {
+    "post_id": "6",
+    "type": "text",
+    "author": {
+      "user_id": "678",
+      "username": "user6",
+      "profile_image": "https://i.pravatar.cc/400?img=6",
+      "full_name": "Frank"
+    },
+    "content": "Just finished reading a great book! #Reading #Books"
+  },
+  {
+    "post_id": "7",
+    "type": "image",
+    "author": {
+      "user_id": "789",
+      "username": "user7",
+      "profile_image": "https://i.pravatar.cc/400?img=7",
+      "full_name": "Grace"
+    },
+    "url": [
+      "https://cdn.pixabay.com/photo/2024/02/22/22/37/mountain-8590965_1280.jpg"
+    ],
+    "caption": "Sunny day at the beach! 🏖️ #Beach #Relaxation"
+  },
+  {
+    "post_id": "8",
+    "type": "video",
+    "author": {
+      "user_id": "890",
+      "username": "user8",
+      "profile_image": "https://i.pravatar.cc/400?img=8",
+      "full_name": "Harry"
+    },
+    "url": [
+      "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
+      "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4",
+      "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
+      "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4",
+      "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4"
+    ],
+    "caption": "Cooking up some delicious pasta! 🍝 #Cooking #Food"
+  },
+  {
+    "post_id": "9",
+    "type": "link",
+    "author": {
+      "user_id": "901",
+      "username": "user9",
+      "profile_image": "https://i.pravatar.cc/400?img=9",
+      "full_name": "Ivy"
+    },
+    "url": "https://example.com/music",
+    "title": "Best Music Albums of the Year",
+    "description": "Check out the top music albums of the year! #Music #Albums"
+  },
+  {
+    "post_id": "10",
+    "type": "poll",
+    "author": {
+      "user_id": "012",
+      "username": "user10",
+      "profile_image": "https://i.pravatar.cc/400?img=10",
+      "full_name": "Jack"
+    },
+    "question": "Which movie genre do you prefer?",
+    "options": ["Action", "Comedy", "Drama", "Horror"],
+    "hashtags": ["Movies", "Entertainment"]
+  }
+]
