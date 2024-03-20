@@ -8,7 +8,10 @@ import {
   IoBookmark,
 } from "react-icons/io5"
 import { IoMdShareAlt } from "react-icons/io"
-import useMediaPost from "../../hooks/useMediaPost"
+
+import Slider, { Settings } from "react-slick"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
 
 type MediaPostProps = {
   theme: string
@@ -21,11 +24,18 @@ const MediaPost: React.FC<MediaPostProps> = ({ id, data }) => {
   const postText = useRef<HTMLParagraphElement | null>(null)
   const helper = new Helper()
   const post = helper.convertHashTags(data.caption)
-  const mediaPost = useMediaPost({
-    theme: data.theme,
-    isImage: data.type === "image",
-    data: data.url,
-  })
+
+  const slickSettings: Settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    className: "w-full h-[400px]",
+    arrows: false,
+    pauseOnHover: true,
+    pauseOnFocus: true,
+  }
 
   const [isLike, setIsLike] = useState(false)
 
@@ -60,7 +70,27 @@ const MediaPost: React.FC<MediaPostProps> = ({ id, data }) => {
             {post}
           </p>
         </div>
-        {mediaPost}
+        <div className="w-full mt-2">
+          <Slider {...slickSettings}>
+            {data.url.map((url: string, index: number) => (
+              <div key={index} className="w-full h-[400px] overflow-hidden">
+                {data.type === "image" ? (
+                  <img
+                    src={url}
+                    alt={`image-${index}`}
+                    className="w-full h-full object-cover object-center border-2 border-gray-300"
+                  />
+                ) : (
+                  <video
+                    src={url}
+                    className="w-full h-full object-cover object-center border-2 border-gray-300"
+                    controls
+                  />
+                )}
+              </div>
+            ))}
+          </Slider>
+        </div>
         <div className="w-full mt-3 flex justify-between border-t py-2 *:text-gray-700 *:flex *:items-center">
           <button
             type="button"

@@ -90,27 +90,10 @@
       "full_name": "Grace"
     },
     "url": [
-      "https://cdn.pixabay.com/photo/2024/02/22/22/37/mountain-8590965_1280.jpg"
+      "https://cdn.pixabay.com/photo/2016/10/14/19/21/canyon-1740973_1280.jpg",
+      "https://cdn.pixabay.com/photo/2019/06/01/22/41/river-4245261_1280.jpg"
     ],
     "caption": "Sunny day at the beach! 🏖️ #Beach #Relaxation"
-  },
-  {
-    "post_id": "8",
-    "type": "video",
-    "author": {
-      "user_id": "890",
-      "username": "user8",
-      "profile_image": "https://i.pravatar.cc/400?img=8",
-      "full_name": "Harry"
-    },
-    "url": [
-      "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
-      "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4",
-      "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
-      "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4",
-      "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4"
-    ],
-    "caption": "Cooking up some delicious pasta! 🍝 #Cooking #Food"
   },
   {
     "post_id": "9",
@@ -137,5 +120,70 @@
     "question": "Which movie genre do you prefer?",
     "options": ["Action", "Comedy", "Drama", "Horror"],
     "hashtags": ["Movies", "Entertainment"]
+  },
+  {
+    "post_id": "11",
+    "type": "text",
+    "author": {
+      "user_id": "1234",
+      "username": "user11",
+      "profile_image": "https://i.pravatar.cc/400?img=11",
+      "full_name": "Kevin"
+    },
+    "content": "Just completed a 10k run! Feeling pumped! 🏃‍♂️ #Running #Fitness"
+  },
+  {
+    "post_id": "12",
+    "type": "image",
+    "author": {
+      "user_id": "2345",
+      "username": "user12",
+      "profile_image": "https://i.pravatar.cc/400?img=12",
+      "full_name": "Lily"
+    },
+    "url": [
+      "https://cdn.pixabay.com/photo/2016/10/14/19/21/canyon-1740973_1280.jpg",
+      "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
+    ],
+    "caption": "First day of school! 📚 #Education #FirstDay"
+  },
+  {
+    "post_id": "13",
+    "type": "video",
+    "author": {
+      "user_id": "3456",
+      "username": "user13",
+      "profile_image": "https://i.pravatar.cc/400?img=13",
+      "full_name": "Mike"
+    },
+    "url": [
+      "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+      "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
+    ],
+    "caption": "Exploring the wilderness! 🌲 #Nature #Adventure"
+  },
+  {
+    "post_id": "14",
+    "type": "link",
+    "author": {
+      "user_id": "4567",
+      "username": "user14",
+      "profile_image": "https://i.pravatar.cc/400?img=14",
+      "full_name": "Nathan"
+    },
+    "url": "https://example.com/food",
+    "title": "10 Delicious Recipes You Must Try",
+    "description": "Discover mouth-watering recipes that will tantalize your taste buds! #Food #Recipes"
+  },
+  {
+    "post_id": "15",
+    "type": "text",
+    "author": {
+      "user_id": "5678",
+      "username": "user15",
+      "profile_image": "https://i.pravatar.cc/400?img=15",
+      "full_name": "Olivia"
+    },
+    "content": "Just adopted a new pet! Meet my furry friend, Max! 🐶 #Pets #Adoption"
   }
 ]

@@ -1,5 +1,10 @@
 import React, { ChangeEvent, useState } from "react"
-import { MdAddLink, MdErrorOutline, MdOutlineAddPhotoAlternate, MdPoll } from "react-icons/md"
+import {
+  MdAddLink,
+  MdErrorOutline,
+  MdOutlineAddPhotoAlternate,
+  MdPoll,
+} from "react-icons/md"
 import PostData from "../../assets/post.json"
 import Story from "./story/Story"
 import "./home.css"
@@ -26,15 +31,28 @@ const Main: React.FC = () => {
       })
     }
 
-    value.length > 0 ? set_validity(false, value.length, "") : set_validity(true, value.length, "")
+    value.length > 0
+      ? set_validity(false, value.length, "")
+      : set_validity(true, value.length, "")
 
-    value.length > 250 ? set_validity(true, value.length, "Maximum 250 characters are allowed.") : set_validity(false, value.length, "")
+    value.length > 250
+      ? set_validity(true, value.length, "Maximum 250 characters are allowed.")
+      : set_validity(false, value.length, "")
   }
   return (
-    <div className="w-6/12 px-6">
+    <div className="w-5/12 px-8">
       <div className="create_new_post">
         <div className="w-full h-fit">
-          <textarea name="new_post" id="new_post" className={validatePost.length > 250 ? "text_danger" : "text_success"} value={postText} onChange={handleNewPostText} placeholder="What's on your mind?"></textarea>
+          <textarea
+            name="new_post"
+            id="new_post"
+            className={
+              validatePost.length > 250 ? "text_danger" : "text_success"
+            }
+            value={postText}
+            onChange={handleNewPostText}
+            placeholder="What's on your mind?"
+          ></textarea>
           <div className="w-full flex gap-2">
             <span className="text-xs">{validatePost.length}/250</span>
             {validatePost.length > 250 && (
@@ -58,7 +76,14 @@ const Main: React.FC = () => {
             </button>
           </div>
           <div className="new_post_wrapper_2">
-            <button className={`publish_btn ${validatePost.isDisabled ? "publish_btn_disabled" : "publish_btn_not_disabled"}`} disabled={validatePost.isDisabled}>
+            <button
+              className={`publish_btn ${
+                validatePost.isDisabled
+                  ? "publish_btn_disabled"
+                  : "publish_btn_not_disabled"
+              }`}
+              disabled={validatePost.isDisabled}
+            >
               Publish
             </button>
           </div>
@@ -68,11 +93,25 @@ const Main: React.FC = () => {
       <div className="w-full my-2">
         {PostData.map((item, index) => {
           if (item.type === "text") {
-            return <TextPost key={`post-${index}`} theme="light" id={index} data={item} />
+            return (
+              <TextPost
+                key={`post-${index}`}
+                theme="light"
+                id={index}
+                data={item}
+              />
+            )
           }
 
           if (item.type === "image" || item.type === "video") {
-            return <MediaPost key={`post-${index}`} theme="dark" id={index} data={item} />
+            return (
+              <MediaPost
+                key={`post-${index}`}
+                theme="dark"
+                id={index}
+                data={item}
+              />
+            )
           }
         })}
       </div>
