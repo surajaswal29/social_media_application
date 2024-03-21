@@ -8,7 +8,7 @@
       "profile_image": "https://i.pravatar.cc/400?img=1",
       "full_name": "Alice"
     },
-    "content": "Today, when I was walking back home from my job, I figured that I should build the best social media template in ThemeForest. As soon as I got back, I started working on this fresh and new project. Any suggestions about where I could find some interesting resources for social media design? #webdesign #socialmedia",
+    "content": "Embark on a journey of discovery! Travel opens doors to new cultures, tastes, and experiences. From bustling cities to serene landscapes, every destination has a story waiting to be explored. 🌍✈️ #TravelTuesday",
     "timestamp": "2024-03-21T10:00:00",
     "likes": 20,
     "comments": [
@@ -88,27 +88,27 @@
     ]
   },
   {
-    "post_id": "4",
-    "type": "link",
-    "author": {
-      "user_id": "456",
-      "username": "user4",
-      "profile_image": "https://i.pravatar.cc/400?img=4",
-      "full_name": "David"
-    },
-    "link_url": "https://youtu.be/VejgRJSkaZM",
-    "title": "Interesting article on AI advancements",
-    "description": "A fascinating read about recent developments in artificial intelligence. #AI #Technology",
-    "timestamp": "2024-03-21T14:00:00",
-    "likes": 25,
-    "comments": []
-  },
-  {
     "post_id": "5",
     "type": "poll",
     "author": {
       "user_id": "567",
       "username": "user5",
+      "profile_image": "https://i.pravatar.cc/400?img=30",
+      "full_name": "Dave"
+    },
+    "question": "What's your favorite programming language?",
+    "options": ["Python", "JavaScript", "Java", "C++"],
+    "hashtags": ["Programming", "Tech"],
+    "timestamp": "2024-03-21T15:30:00",
+    "likes": 40,
+    "comments": []
+  },
+  {
+    "post_id": "5.1",
+    "type": "poll",
+    "author": {
+      "user_id": "567",
+      "username": "user5.1",
       "profile_image": "https://i.pravatar.cc/400?img=5",
       "full_name": "Eve"
     },

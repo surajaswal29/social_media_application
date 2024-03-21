@@ -19,8 +19,16 @@ const Story: React.FC = () => {
         </div>
         {/* Other following Stories */}
         {[1, 2, 3, 4, 5].map((item) => (
-          <div className="other_story_box story_box_dimension" key={item} id="story_box">
-            <img src="https://placehold.co/400" alt="story" className="w-full h-full object-cover rounded-full" />
+          <div
+            className="other_story_box story_box_dimension"
+            key={item}
+            id="story_box"
+          >
+            <img
+              src="https://placehold.co/400"
+              alt="story"
+              className="w-full h-full object-cover rounded-full"
+            />
           </div>
         ))}
       </div>

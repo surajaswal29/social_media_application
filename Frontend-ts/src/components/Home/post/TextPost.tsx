@@ -15,7 +15,7 @@ const TextPost: React.FC<PostProps> = ({ data }) => {
   }, [postText])
 
   return (
-    <div className="w-full mt-2">
+    <div className="w-full mt-3">
       <p className="text-sm *:text-blue-500" ref={postText}>
         {post}
       </p>

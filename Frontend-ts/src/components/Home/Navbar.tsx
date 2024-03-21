@@ -4,7 +4,6 @@ import * as Types from "../../utility/types"
 import Link from "../utils/Link"
 import {
   MdHome,
-  MdOutlineExplore,
   MdNotifications,
   MdChat,
   MdSearch,
@@ -27,10 +26,6 @@ const Navbar: FC<Types.NavbarProps> = () => {
           <li className="flex items-center gap-1">
             <MdHome size={20} />
             <Link path="/" title="Home" />
-          </li>
-          <li className="flex items-center gap-1">
-            <MdOutlineExplore size={20} />
-            <Link path="/Feed" title="Feed" />
           </li>
           <li className="flex items-center gap-1">
             <MdNotifications size={20} />

@@ -1,10 +1,10 @@
 /* Story Style */
 .main_story_wrapper {
-  @apply w-full py-3 flex justify-between items-center overflow-hidden gap-3 cursor-pointer;
+  @apply w-full py-3 flex justify-between items-center overflow-auto md:overflow-hidden gap-3 cursor-pointer;
 }
 
 .story_box_dimension {
-  @apply w-20 h-20;
+  @apply w-[80px] h-[80px] grow-0 shrink-0;
 }
 
 .my_story_box {

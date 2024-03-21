@@ -1,6 +1,6 @@
 import React from "react"
 import {
-  MdAddLink,
+  // MdAddLink,
   MdErrorOutline,
   MdOutlineAddPhotoAlternate,
   MdPoll,
@@ -63,9 +63,9 @@ const CreatePost: React.FC = () => {
           <button type="button">
             <MdPoll size={20} /> Create Poll
           </button>
-          <button type="button">
+          {/* <button type="button">
             <MdAddLink size={20} /> Share Link
-          </button>
+          </button> */}
         </div>
         <div className="new_post_wrapper_2">
           <button

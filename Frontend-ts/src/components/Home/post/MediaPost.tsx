@@ -24,35 +24,38 @@ const MediaPost: React.FC<PostProps> = ({ data }) => {
   }
 
   return (
-    <div className="w-full mt-2 relative">
+    <div className="w-full mt-3">
       <TextPost data={data} theme="light" />
-      <Slider {...slickSettings}>
-        {data.media.map(
-          (item: { url: string; media_type: string }, index: number) => (
-            <div key={index} className="w-full h-[400px] overflow-hidden">
-              {item.media_type === "image" ? (
-                <img
-                  src={item.url}
-                  alt={`image-${index}`}
-                  className="w-full h-full object-cover object-center border border-gray-50"
-                />
-              ) : (
-                <video
-                  src={item.url}
-                  className="w-full h-full object-cover object-center border border-gray-50"
-                  controls
-                />
-              )}
-            </div>
-          )
-        )}
-      </Slider>
-      <span
-        id="post_counter_display"
-        className="absolute top-2 right-2 text-gray-200 text-sm font-medium"
-      >
-        {`${currentPostSlide + 1}/${data.media.length || 5}`}
-      </span>
+
+      <div className="w-full mt-2 relative">
+        <Slider {...slickSettings}>
+          {data.media.map(
+            (item: { url: string; media_type: string }, index: number) => (
+              <div key={index} className="w-full h-[400px] overflow-hidden">
+                {item.media_type === "image" ? (
+                  <img
+                    src={item.url}
+                    alt={`image-${index}`}
+                    className="w-full h-full object-cover object-center border border-gray-50"
+                  />
+                ) : (
+                  <video
+                    src={item.url}
+                    className="w-full h-full object-cover object-center border border-gray-50"
+                    controls
+                  />
+                )}
+              </div>
+            )
+          )}
+        </Slider>
+        <span
+          id="post_counter_display"
+          className="absolute top-2 right-2 text-gray-200 text-sm font-medium"
+        >
+          {`${currentPostSlide + 1}/${data.media.length || 5}`}
+        </span>
+      </div>
     </div>
   )
 }

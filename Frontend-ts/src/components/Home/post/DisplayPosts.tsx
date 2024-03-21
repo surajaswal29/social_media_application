@@ -11,12 +11,21 @@ import {
 import { IoMdShareAlt } from "react-icons/io"
 import TextPost from "./TextPost"
 import MediaPost from "./MediaPost"
-import LinkPost from "./LinkPost"
+// import LinkPost from "./LinkPost"
 import PollPost from "./PollPost"
+import { Menu, MenuItem } from "@mui/material"
 
 const DisplayPosts: React.FC = () => {
   const [isLike, setIsLike] = React.useState(false)
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
+  const open = Boolean(anchorEl)
 
+  const handleMenuClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(e.currentTarget)
+  }
+  const handleMenuClose = () => {
+    setAnchorEl(null)
+  }
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const renderPostType = (type: string, data: any) => {
     switch (type) {
@@ -24,8 +33,8 @@ const DisplayPosts: React.FC = () => {
         return <TextPost data={data} theme="light" />
       case "media":
         return <MediaPost data={data} theme="light" />
-      case "link":
-        return <LinkPost data={data} theme="light" />
+      //   case "link":
+      //     return <LinkPost data={data} theme="light" />
       case "poll":
         return <PollPost data={data} theme="light" />
       default:
@@ -34,11 +43,12 @@ const DisplayPosts: React.FC = () => {
   }
   return (
     <div className="w-full my-2">
+      <h1 className="font-medium my-2">Feeds</h1>
       {PostData.map((data, index) => (
         <div className="w-full bg-white p-3 mb-4 rounded-md" key={index}>
           <div className="w-full">
             {/* user info header */}
-            <div className="w-full flex justify-between">
+            <div className="w-full flex justify-between relative">
               <div className="flex items-center gap-2">
                 <img
                   src={data.author.profile_image}
@@ -52,9 +62,42 @@ const DisplayPosts: React.FC = () => {
                   <p className="text-xs text-gray-500">2 hours ago</p>
                 </div>
               </div>
-              <button className="text-xs text-gray-500">
+              <button
+                className="text-xs text-gray-600"
+                onClick={handleMenuClick}
+              >
                 <BsThreeDotsVertical size={18} />
               </button>
+              <Menu
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleMenuClose}
+                MenuListProps={{
+                  "aria-labelledby": "basic-button",
+                }}
+                sx={{
+                  "& .MuiPaper-root": {
+                    width: "fit-content",
+                    backgroundColor: "white",
+                    border: "1px solid #ccc",
+                    borderRadius: "4px",
+                    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                    textAlign: "center",
+                  },
+                }}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+              >
+                <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+                <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+                <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
+              </Menu>
             </div>
             {/* caption or text post */}
             {renderPostType(data.type, data)}
@@ -87,12 +130,14 @@ const DisplayPosts: React.FC = () => {
               </button>
             </div>
             {/* comment area */}
-            <div className="w-full flex justify-between">
+            <div className="w-full flex justify-between items-center pt-3 border-t">
               <div className="w-1/12 flex items-center gap-2">
                 <img
-                  src={data.author.profile_image}
+                  src={
+                    "https://t3.ftcdn.net/jpg/04/23/59/74/360_F_423597477_AKCjGMtevfCi9XJG0M8jter97kG466y7.jpg"
+                  }
                   alt={data.author.full_name}
-                  className="w-10 h-10 rounded-full"
+                  className="w-10 h-10 rounded-full object-cover object-center"
                 />
               </div>
               <div className="w-10/12 px-3 flex relative">
