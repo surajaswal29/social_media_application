@@ -54,3 +54,19 @@
 .new_post_wrapper_2 .publish_btn_not_disabled {
   @apply bg-teal-500 hover:bg-teal-600 cursor-pointer;
 }
+
+/* Slick Slider */
+.slick-dots {
+  bottom: 0% !important;
+}
+.slick-dots li {
+  margin: 0px 2px !important;
+}
+.slick-dots li button:before {
+  color: #d5d2d2 !important;
+  opacity: 0.8 !important;
+}
+.slick-dots li.slick-active button:before {
+  opacity: 1 !important;
+  color: rgb(255, 255, 255) !important;
+}
