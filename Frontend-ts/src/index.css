@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  font-family: "Poppins", sans-serif;
+}
+
 ::-webkit-scrollbar {
   width: 8px; /* Width of the scrollbar */
   height: 8px;

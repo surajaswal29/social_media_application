@@ -31,11 +31,11 @@
     },
     "media": [
       {
-        "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+        "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
         "media_type": "video"
       },
       {
-        "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+        "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
         "media_type": "video"
       }
     ],
@@ -55,23 +55,23 @@
     },
     "media": [
       {
-        "url": "https://cdn.pixabay.com/photo/2024/02/22/22/37/mountain-8590965_1280.jpg",
+        "url": "https://placehold.co/600x400",
         "media_type": "image"
       },
       {
-        "url": "https://cdn.pixabay.com/photo/2017/02/01/22/02/mountain-landscape-2031539_1280.jpg",
+        "url": "https://placehold.co/600x400",
         "media_type": "image"
       },
       {
-        "url": "https://cdn.pixabay.com/photo/2023/09/27/03/12/mountain-8278526_1280.jpg",
+        "url": "https://placehold.co/600x400",
         "media_type": "image"
       },
       {
-        "url": "https://cdn.pixabay.com/photo/2016/10/14/19/21/canyon-1740973_1280.jpg",
+        "url": "https://placehold.co/600x400",
         "media_type": "image"
       },
       {
-        "url": "https://cdn.pixabay.com/photo/2019/06/01/22/41/river-4245261_1280.jpg",
+        "url": "https://placehold.co/600x400",
         "media_type": "image"
       }
     ],
@@ -144,11 +144,11 @@
     },
     "media": [
       {
-        "url": "https://cdn.pixabay.com/photo/2016/10/14/19/21/canyon-1740973_1280.jpg",
+        "url": "https://placehold.co/600x400",
         "media_type": "image"
       },
       {
-        "url": "https://cdn.pixabay.com/photo/2019/06/01/22/41/river-4245261_1280.jpg",
+        "url": "https://placehold.co/600x400",
         "media_type": "image"
       }
     ],

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import type { Config } from "tailwindcss"
 
 export default {
@@ -5,13 +6,15 @@ export default {
   theme: {
     extend: {},
     fontFamily: {
-      // poppins: ["Poppins", "sans-serif"],
-      // roboto: ["Roboto", "sans-serif"],
-      sans: ["Roboto", "sans-serif"],
-      serif: ["Merriweather", "serif"],
+      sans: ["Poppins", "sans-serif"],
     },
   },
   // prefix:"uttara",
   darkMode: "class",
-  plugins: [],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("@vidstack/react/tailwind.cjs")({
+      prefix: "media",
+    }),
+  ],
 } satisfies Config

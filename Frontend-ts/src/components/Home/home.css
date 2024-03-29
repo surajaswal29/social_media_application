@@ -58,6 +58,7 @@
 /* Slick Slider */
 .slick-dots {
   bottom: 0% !important;
+  z-index: 1;
 }
 .slick-dots li {
   margin: 0px 2px !important;

@@ -40,7 +40,7 @@ const RightSidebar: React.FC = () => {
           <p className="text-sm text-gray-500">@surajaswal29</p>
           <p className="text-sm text-gray-500">NodeJS & MERN Stack Developer</p>
         </div>
-        <div className="w-full flex justify-between px-8 *:flex *:flex-col *:items-center *:font-semibold font-sans mb-4">
+        <div className="w-full flex justify-between px-8 *:flex *:flex-col *:items-center *:font-medium mb-4">
           <div className="text-sm">
             <span>290</span>
             <span className="text-gray-500">Post</span>

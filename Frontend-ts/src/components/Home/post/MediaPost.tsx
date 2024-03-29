@@ -32,7 +32,10 @@ const MediaPost: React.FC<PostProps> = ({ data }) => {
         <Slider {...slickSettings}>
           {data.media.map(
             (item: { url: string; media_type: string }, index: number) => (
-              <div key={index} className="w-full max-h-[400px] overflow-hidden">
+              <div
+                key={index}
+                className="w-full h-[400px] overflow-hidden flex items-center border bg-slate-400"
+              >
                 {item.media_type === "image" ? (
                   <img
                     src={item.url}
@@ -40,11 +43,6 @@ const MediaPost: React.FC<PostProps> = ({ data }) => {
                     className="w-full h-full object-cover object-center border border-gray-50"
                   />
                 ) : (
-                  // <video
-                  //   src={item.url}
-                  //   className="w-full h-full object-cover object-center border border-gray-50"
-                  //   controls
-                  // />
                   <Video url={item.url} />
                 )}
               </div>
