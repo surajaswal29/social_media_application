@@ -31,11 +31,11 @@
     },
     "media": [
       {
-        "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+        "url": "https://res.cloudinary.com/djbhdmm0r/video/upload/v1711817341/uttara/1_w5tkaj.mp4",
         "media_type": "video"
       },
       {
-        "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+        "url": "https://res.cloudinary.com/djbhdmm0r/video/upload/v1711817339/uttara/3_ydlbqt.mp4",
         "media_type": "video"
       }
     ],
@@ -63,8 +63,8 @@
         "media_type": "image"
       },
       {
-        "url": "https://placehold.co/600x400",
-        "media_type": "image"
+        "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
+        "media_type": "video"
       },
       {
         "url": "https://placehold.co/600x400",
@@ -144,8 +144,8 @@
     },
     "media": [
       {
-        "url": "https://placehold.co/600x400",
-        "media_type": "image"
+        "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
+        "media_type": "video"
       },
       {
         "url": "https://placehold.co/600x400",
@@ -163,5 +163,205 @@
         "timestamp": "2024-03-21T17:35:00"
       }
     ]
+  },
+  {
+    "post_id": "2.1",
+    "type": "media",
+    "author": {
+      "user_id": "234",
+      "username": "user2",
+      "profile_image": "https://i.pravatar.cc/400?img=2",
+      "full_name": "Bob"
+    },
+    "media": [
+      {
+        "url": "https://res.cloudinary.com/djbhdmm0r/video/upload/v1711817341/uttara/1_w5tkaj.mp4",
+        "media_type": "video"
+      }
+    ],
+    "content": "Another angle of the beautiful sunset from my balcony! 🌇 #Sunset #Nature",
+    "timestamp": "2024-03-21T11:35:00",
+    "likes": 20,
+    "comments": []
+  },
+  {
+    "post_id": "2.2",
+    "type": "media",
+    "author": {
+      "user_id": "234",
+      "username": "user2",
+      "profile_image": "https://i.pravatar.cc/400?img=2",
+      "full_name": "Bob"
+    },
+    "media": [
+      {
+        "url": "https://res.cloudinary.com/djbhdmm0r/video/upload/v1711817339/uttara/3_ydlbqt.mp4",
+        "media_type": "video"
+      }
+    ],
+    "content": "Dancing clouds during sunset! 🌇☁️ #Sunset #Clouds",
+    "timestamp": "2024-03-21T11:40:00",
+    "likes": 25,
+    "comments": []
+  },
+  {
+    "post_id": "3.1",
+    "type": "media",
+    "author": {
+      "user_id": "345",
+      "username": "user3",
+      "profile_image": "https://i.pravatar.cc/400?img=3",
+      "full_name": "Charlie"
+    },
+    "media": [
+      {
+        "url": "https://placehold.co/600x400",
+        "media_type": "image"
+      }
+    ],
+    "content": "Memorable moments from the trip! 📷 #Travel #Memories",
+    "timestamp": "2024-03-21T12:50:00",
+    "likes": 15,
+    "comments": []
+  },
+  {
+    "post_id": "3.2",
+    "type": "media",
+    "author": {
+      "user_id": "345",
+      "username": "user3",
+      "profile_image": "https://i.pravatar.cc/400?img=3",
+      "full_name": "Charlie"
+    },
+    "media": [
+      {
+        "url": "https://placehold.co/600x400",
+        "media_type": "image"
+      }
+    ],
+    "content": "Exploring the wilderness! 🌲 #Adventure #Nature",
+    "timestamp": "2024-03-21T12:55:00",
+    "likes": 10,
+    "comments": []
+  },
+  {
+    "post_id": "3.3",
+    "type": "media",
+    "author": {
+      "user_id": "345",
+      "username": "user3",
+      "profile_image": "https://i.pravatar.cc/400?img=3",
+      "full_name": "Charlie"
+    },
+    "media": [
+      {
+        "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
+        "media_type": "video"
+      }
+    ],
+    "content": "The mesmerizing view from the summit! 🏔️ #Mountain #Adventure",
+    "timestamp": "2024-03-21T13:00:00",
+    "likes": 20,
+    "comments": []
+  },
+  {
+    "post_id": "3.4",
+    "type": "media",
+    "author": {
+      "user_id": "345",
+      "username": "user3",
+      "profile_image": "https://i.pravatar.cc/400?img=3",
+      "full_name": "Charlie"
+    },
+    "media": [
+      {
+        "url": "https://placehold.co/600x400",
+        "media_type": "image"
+      }
+    ],
+    "content": "Peaceful moments by the river! 🚣‍♂️ #Nature #Serene",
+    "timestamp": "2024-03-21T13:05:00",
+    "likes": 15,
+    "comments": []
+  },
+  {
+    "post_id": "3.5",
+    "type": "media",
+    "author": {
+      "user_id": "345",
+      "username": "user3",
+      "profile_image": "https://i.pravatar.cc/400?img=3",
+      "full_name": "Charlie"
+    },
+    "media": [
+      {
+        "url": "https://placehold.co/600x400",
+        "media_type": "image"
+      }
+    ],
+    "content": "Lost in the beauty of nature! 🌿 #Nature #Exploration",
+    "timestamp": "2024-03-21T13:10:00",
+    "likes": 12,
+    "comments": []
+  },
+  {
+    "post_id": "7.1",
+    "type": "media",
+    "author": {
+      "user_id": "789",
+      "username": "user7",
+      "profile_image": "https://i.pravatar.cc/400?img=7",
+      "full_name": "Grace"
+    },
+    "media": [
+      {
+        "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
+        "media_type": "video"
+      }
+    ],
+    "content": "Jumping waves and sandy toes! 🌊👣 #Beach #Fun",
+    "timestamp": "2024-03-21T17:35:00",
+    "likes": 28,
+    "comments": []
+  },
+  {
+    "post_id": "7.2",
+    "type": "media",
+    "author": {
+      "user_id": "789",
+      "username": "user7",
+      "profile_image": "https://i.pravatar.cc/400?img=7",
+      "full_name": "Grace"
+    },
+    "media": [
+      {
+        "url": "https://placehold.co/600x400",
+        "media_type": "image"
+      }
+    ],
+    "content": "Sunset silhouette on the shore! 🌅🌊 #Beach #Sunset",
+    "timestamp": "2024-03-21T17:40:00",
+    "likes": 18,
+    "comments": []
+  },
+  {
+    "post_id": "7.3",
+    "type": "media",
+    "author": {
+      "user_id": "789",
+      "username": "user7",
+      "profile_image": "https://i.pravatar.cc/400?img=7",
+      "full_name": "Grace"
+    },
+    "media": [
+      {
+        "url": "https://placehold.co/600x400",
+        "media_type": "image"
+      }
+    ],
+    "content": "Building sandcastles under the sun! 🏖️☀️ #Beach #Fun",
+    "timestamp": "2024-03-21T17:45:00",
+    "likes": 22,
+    "comments": []
   }
 ]

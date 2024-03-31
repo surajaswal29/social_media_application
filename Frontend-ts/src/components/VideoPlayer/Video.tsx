@@ -1,5 +1,5 @@
 import "@vidstack/react/player/styles/base.css"
-import { useRef } from "react"
+import React from "react"
 import {
   MediaPlayer,
   MediaProvider,
@@ -7,29 +7,81 @@ import {
 } from "@vidstack/react"
 import { VideoLayout } from "./VideoLayout"
 
-type props = {
+type Props = {
   url: string
+  isActive: boolean
+  postNumber: number
 }
-const Video: React.FC<props> = ({ url }) => {
-    const player = useRef<MediaPlayerInstance>(null)
+
+const Video: React.FC<Props> = ({ url, isActive, postNumber }) => {
+  const player = React.useRef<MediaPlayerInstance>(null)
+  const videoContainer = React.useRef(null)
+  const [isReady, setIsReady] = React.useState(false)
+
+  const handleOnCanPlay = () => {
+    setIsReady(true)
+    if (isActive) {
+      player.current?.play()
+    }
+  }
+
+  React.useEffect(() => {
+    if (isActive && isReady) {
+      player.current?.play()
+    } else {
+      player.current?.pause()
+    }
+  }, [isActive, isReady, postNumber, url])
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // console.log(entries);
+        console.log(entries[0].isIntersecting)
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (isActive && isReady) {
+              player.current?.play()
+            }
+          } else {
+            player.current?.pause()
+          }
+        })
+      },
+      {
+        root: null,
+        threshold: 0.7,
+        
+      }
+    )
+
+    if (videoContainer.current) {
+      observer.observe(videoContainer.current)
+    }
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [isActive, isReady])
 
   return (
-    <MediaPlayer
-      className="w-full h-full aspect-auto bg-slate-900 text-white font-sans overflow-hidden ring-media-focus data-[focus]:ring-4"
-      title="Video"
-      src={url}
-      // onReady={onReady}
-      // onProviderChange={onProviderChange}
-      // onCanPlay={onCanPlay}
-      ref={player}
-      autoPlay={true} 
-      muted={true}
-      playsInline={true}
-      controls={false}
-    >
-      <MediaProvider />
-      <VideoLayout thumbnails="" />
-    </MediaPlayer>
+    <div className="w-full h-full" ref={videoContainer}>
+      <MediaPlayer
+        className="w-full h-full aspect-auto bg-slate-900 text-white font-sans overflow-hidden ring-media-focus focus:ring-4"
+        title="Video"
+        src={url}
+        ref={player}
+        muted={true}
+        playsInline={true}
+        controls={false}
+        onCanPlay={handleOnCanPlay}
+        // autoPlay={false}
+        // loop={false}
+      >
+        <MediaProvider />
+        <VideoLayout thumbnails="" />
+      </MediaPlayer>
+    </div>
   )
 }
 

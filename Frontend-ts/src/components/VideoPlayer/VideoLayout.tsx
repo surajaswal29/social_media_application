@@ -49,6 +49,7 @@ function Gestures() {
         event="pointerup"
         action="toggle:paused"
       />
+
       <Gesture
         className="absolute inset-0 z-0 block h-full w-full"
         event="dblpointerup"
