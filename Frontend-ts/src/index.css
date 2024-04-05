@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 *{
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 ::-webkit-scrollbar {

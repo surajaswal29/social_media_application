@@ -1,4 +1,4 @@
-import { FC } from "react"
+import { FC, useEffect, useRef } from "react"
 // import { Link } from "react-router-dom"
 import * as Types from "../../utility/types"
 import Link from "../utils/Link"
@@ -8,10 +8,33 @@ import {
   MdChat,
   MdSearch,
 } from "react-icons/md"
+import useNavDimensions from "../../hooks/useNavDimensions"
 
 const Navbar: FC<Types.NavbarProps> = () => {
+  const navbarRef = useRef<HTMLDivElement>(null)
+  const { setNavbarDimension } = useNavDimensions(navbarRef)
+
+  useEffect(() => {
+    if(navbarRef.current){
+      setNavbarDimension({
+        navHeight: navbarRef.current.offsetHeight,
+        mainHeight: navbarRef.current.offsetParent?.clientHeight as number,
+        mainWidth: navbarRef.current.offsetParent?.clientWidth  as number
+      })
+    }
+    return () => {
+      setNavbarDimension({
+        navHeight: 0,
+        mainHeight: 0,
+        mainWidth: 0
+      }) 
+      console.log("Navbar unmounted");
+      
+      return;
+    }
+  },[setNavbarDimension])
   return (
-    <nav className="w-full flex items-center p-2 px-4 border bg-white sticky top-0 z-50">
+    <nav className="w-full flex items-center p-2 px-4 border bg-white sticky top-0 z-50" ref={navbarRef}>
       <div className="w-2/12">
         <div className="h-12">
           <img
@@ -50,9 +73,9 @@ const Navbar: FC<Types.NavbarProps> = () => {
         </div>
       </div>
       <div className="w-2/12 px-3">
-        <button className="w-full rounded bg-teal-500 px-4 py-2 text-white hover:bg-teal-600 focus:outline-none">
-          Login
-        </button>
+        <Link path="/auth" title="Login" className="w-full block text-center rounded bg-teal-500 px-4 py-2 text-white hover:bg-teal-600 focus:outline-none" />
+          {/* Login
+        </button> */}
       </div>
     </nav>
   )

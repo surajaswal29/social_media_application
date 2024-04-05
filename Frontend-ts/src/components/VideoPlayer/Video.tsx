@@ -50,8 +50,7 @@ const Video: React.FC<Props> = ({ url, isActive, postNumber }) => {
       },
       {
         root: null,
-        threshold: 0.7,
-        
+        threshold: 1,
       }
     )
 
@@ -75,8 +74,8 @@ const Video: React.FC<Props> = ({ url, isActive, postNumber }) => {
         playsInline={true}
         controls={false}
         onCanPlay={handleOnCanPlay}
-        // autoPlay={false}
-        // loop={false}
+      // autoPlay={false}
+      // loop={false}
       >
         <MediaProvider />
         <VideoLayout thumbnails="" />

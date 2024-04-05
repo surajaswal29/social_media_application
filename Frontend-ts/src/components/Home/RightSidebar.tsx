@@ -2,20 +2,7 @@ import React from "react"
 import CoverImage from "../../assets/1.png"
 
 const RightSidebar: React.FC = () => {
-  // const renderImages = (d: number) => {
-  //   const img = []
-  //   for (let i = 0; i < d; i++) {
-  //     img.push(
-  //       <img
-  //         src={`https://i.pravatar.cc/400?img=${i}`}
-  //         alt="User Cover Picture"
-  //         className="w-20 h-20 object-contain"
-  //       />
-  //     )
-  //   }
-
-  //   return img
-  // }
+  
   return (
     <div className="hidden md:block w-[30%] px-6">
       <div className="w-full bg-white rounded-md overflow-hidden">
@@ -36,7 +23,7 @@ const RightSidebar: React.FC = () => {
           </div>
         </div>
         <div className="w-full flex flex-col items-center py-3">
-          <p className="text-lg font-semibold">Suraj Aswal</p>
+          <p className="text-lg font-medium">Suraj Aswal</p>
           <p className="text-sm text-gray-500">@surajaswal29</p>
           <p className="text-sm text-gray-500">NodeJS & MERN Stack Developer</p>
         </div>

@@ -7,8 +7,9 @@ import LeftSidebar from "../../components/Home/LeftSidebar"
 
 const Home: FC<Types.UserHomeProps> = ({ theme }) => {
   console.log(theme)
+
   return (
-    <div className="w-full bg-slate-100">
+    <div className="w-full bg-slate-100 h-screen overflow-hidden">
       <Navbar theme={theme} />
 
       <div className="w-full flex md:px-8 mt-6">

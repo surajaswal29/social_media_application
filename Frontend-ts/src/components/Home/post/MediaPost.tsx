@@ -22,7 +22,7 @@ const MediaPost: React.FC<PostProps> = ({ data }) => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    className: "w-full max-h-[400px]",
+    className: "w-full max-h-[500px]",
     arrows: false,
     beforeChange: (_current: number, next: number) => {
       setCurrentPostSlide(next)
@@ -35,7 +35,7 @@ const MediaPost: React.FC<PostProps> = ({ data }) => {
 
       <div className="w-full mt-2 relative">
         {data.media.length === 1 ? (
-          <div className="w-full h-[400px] overflow-hidden flex items-center border bg-slate-400">
+          <div className="w-full h-[500px] overflow-hidden flex items-center border bg-slate-400">
             {data.media[0].media_type === "image" && (
               <img
                 src={data.media[0].url}
@@ -53,7 +53,7 @@ const MediaPost: React.FC<PostProps> = ({ data }) => {
               data.media.map((item: MediaPostProps, index: number) => (
                 <div
                   key={index}
-                  className="w-full h-[400px] overflow-hidden flex items-center border bg-slate-400"
+                  className="w-full h-[500px] overflow-hidden flex items-center border bg-slate-400"
                 >
                   {item.media_type === "image" && (
                     <img

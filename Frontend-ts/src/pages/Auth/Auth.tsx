@@ -1,9 +1,9 @@
 import React, { useState } from "react"
-import Register from "../../components/user/Register"
+import Register from "../../components/Auth/Register"
 import * as Types from "../../utility/types"
-import Login from "../../components/user/Login"
+import Login from "../../components/Auth/Login"
 
-const Join: React.FC<Types.UserAuthProps> = ({ theme }) => {
+const UserAuth: React.FC<Types.UserAuthProps> = ({ theme }) => {
   const [isLoginPage, setIsLoginPage] = useState(true)
 
   const switchForm = (e: Types.FormEvent) => {
@@ -32,4 +32,4 @@ const Join: React.FC<Types.UserAuthProps> = ({ theme }) => {
   )
 }
 
-export default Join
+export default UserAuth
