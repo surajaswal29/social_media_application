@@ -6,6 +6,7 @@ import Home from "./pages/main/Home"
 
 // utils
 import * as Types from "./utility/types"
+import NavbarProvider from "./context/navbarContext"
 
 const App: FC<Types.RootAppProps> = () => {
   const theme: string = "light"
@@ -24,7 +25,11 @@ const App: FC<Types.RootAppProps> = () => {
   // Use the useRoutes hook to dynamically create route elements
   const elements = useRoutes(routes)
 
-  return <>{elements}</>
+  return (
+    <>
+      <NavbarProvider>{elements}</NavbarProvider>
+    </>
+  )
 }
 
 export default App

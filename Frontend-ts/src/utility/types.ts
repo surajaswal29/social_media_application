@@ -1,5 +1,3 @@
-import { ChangeEvent } from "react"
-
 export interface FormEvent {
   preventDefault: () => void
 }
@@ -23,21 +21,6 @@ export interface UserAuthProps {
 export interface UserHomeProps {
   theme: theme
 }
-
-// Navbar props types
-export interface NavbarProps {
-  theme: theme
-}
-
-export type NavbarDimensionProps = {
-    navHeight: number
-    mainHeight:number
-    mainWidth: number
-}
-
-export interface MainCompProps {
-  navbarDimension: NavbarDimensionProps
-}
 export interface LinkProps {
   path: string
   className?: string
@@ -56,5 +39,3 @@ export interface MediaPostProps {}
 export interface TextPostProps {}
 export interface LinkPostProps {}
 export interface PollPostProps {}
-
-export type validateEvent = ChangeEvent<HTMLInputElement>

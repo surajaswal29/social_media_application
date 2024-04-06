@@ -1,15 +1,15 @@
 import React from 'react'
+import { NavbarContext } from '../context/navbarContext'
+import { NavbarDimensionsContextType } from '../@types/navbar'
 
+const useNavDimensions = () => {
+  const context = React.useContext(NavbarContext) as NavbarDimensionsContextType
 
-const useNavDimensions = (CustomRef?: React.RefObject<HTMLDivElement>) => {
+  if (!context) {
+    throw new Error('useNavDimensions must be used within a NavbarProvider')
+  }
 
-  const [navbarDimension, setNavbarDimension] = React.useState({
-    navHeight: CustomRef?.current?.offsetHeight || 0,
-    mainHeight: window.innerHeight,
-    mainWidth: window.innerWidth,
-  })
-
-  return { navbarDimension, setNavbarDimension }
+  return context
 }
 
 export default useNavDimensions
