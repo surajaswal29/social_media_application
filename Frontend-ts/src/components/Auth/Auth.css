@@ -1,12 +1,12 @@
 .form_control {
-  @apply mb-2 w-full rounded border border-gray-200 p-2 focus:border-teal-300 text-sm focus:outline-none;
+  @apply mb-2 w-full rounded border border-gray-200 p-2 focus:border-purple-300 text-sm focus:outline-none;
 }
 
 .form_control_label {
   @apply text-xs text-gray-600 font-medium;
 }
 .form_submit_btn {
-  @apply w-full mt-4 rounded bg-teal-500 px-4 py-2 text-white hover:bg-teal-600 focus:outline-none !important;
+  @apply w-full mt-4 rounded bg-violet-500 px-4 py-2 text-white hover:bg-violet-600 focus:outline-none !important;
 }
 .form_field_error {
   @apply text-red-500 text-xs font-normal capitalize;

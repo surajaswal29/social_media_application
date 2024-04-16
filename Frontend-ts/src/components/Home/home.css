@@ -12,7 +12,7 @@
 }
 
 .other_story_box {
-  @apply rounded-full bg-white overflow-hidden border-2 border-teal-300;
+  @apply rounded-full bg-white overflow-hidden border-2 border-violet-300;
 }
 /* New Post style */
 .create_new_post {
@@ -48,11 +48,11 @@
 }
 
 .new_post_wrapper_2 .publish_btn_disabled {
-  @apply bg-teal-200 hover:bg-teal-300 cursor-not-allowed;
+  @apply bg-violet-200 hover:bg-violet-300 cursor-not-allowed;
 }
 
 .new_post_wrapper_2 .publish_btn_not_disabled {
-  @apply bg-teal-500 hover:bg-teal-600 cursor-pointer;
+  @apply bg-violet-500 hover:bg-violet-600 cursor-pointer;
 }
 
 /* Slick Slider */

@@ -12,20 +12,22 @@ type Props = {
 }
 
 const Register: FC<Props> = ({ theme, switchForm }) => {
-  
-
-  const { register, handleSubmit, formState: { errors } } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     resolver: yupResolver(userResolver),
   })
   console.log(theme)
 
   const formSubmitHandler = (data: unknown) => {
     console.log(data)
-   }
+  }
 
   return (
     <>
-      <h1 className='mb-5 text-xl font-semibold'>Create an account</h1>
+      <h1 className='mb-5 text-xl font-medium'>Create an account</h1>
       <form onSubmit={handleSubmit(formSubmitHandler)}>
         <div className='w-full'>
           <label htmlFor='email' className='form_control_label'>
@@ -37,9 +39,9 @@ const Register: FC<Props> = ({ theme, switchForm }) => {
             className='form_control'
             {...register("email")}
           />
-          {
-            errors.email && <p className='form_field_error'>{errors.email?.message}</p>
-          }
+          {errors.email && (
+            <p className='form_field_error'>{errors.email?.message}</p>
+          )}
         </div>
         <div className='w-full'>
           <label htmlFor='phone' className='form_control_label'>
@@ -51,9 +53,9 @@ const Register: FC<Props> = ({ theme, switchForm }) => {
             className='form_control'
             {...register("phone")}
           />
-          {
-            errors.phone && <p className='form_field_error'>{errors.phone?.message}</p>
-          }
+          {errors.phone && (
+            <p className='form_field_error'>{errors.phone?.message}</p>
+          )}
         </div>
         <div className='w-full'>
           <label htmlFor='password' className='form_control_label'>
@@ -65,9 +67,9 @@ const Register: FC<Props> = ({ theme, switchForm }) => {
             className='form_control'
             {...register("password")}
           />
-          {
-            errors.password && <p className='form_field_error'>{errors.password?.message}</p>
-          }
+          {errors.password && (
+            <p className='form_field_error'>{errors.password?.message}</p>
+          )}
         </div>
 
         <button type='submit' className='form_submit_btn'>

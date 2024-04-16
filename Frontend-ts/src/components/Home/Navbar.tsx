@@ -30,9 +30,9 @@ const Navbar: FC<NavbarPropsType> = () => {
       <div className='w-2/12'>
         <div className='h-11'>
           <img
-            src={import.meta.env.VITE_MAIN_LOGO}
+            src={import.meta.env.VITE_MAIN_LOGOs || "/logo.png"}
             alt='Uttara Logo'
-            className='w-full h-full'
+            className='w-full h-full object-contain'
           />
         </div>
       </div>
@@ -68,7 +68,7 @@ const Navbar: FC<NavbarPropsType> = () => {
         <Link
           path='/auth'
           title='Login'
-          className='w-full block text-center rounded bg-teal-500 px-4 py-2 text-white hover:bg-teal-600 focus:outline-none'
+          className='w-full block text-center rounded bg-violet-500 px-4 py-2 text-white hover:bg-violet-600 focus:outline-none'
         />
         {/* Login
         </button> */}
