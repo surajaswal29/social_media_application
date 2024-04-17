@@ -55,6 +55,10 @@ export const createUser = async (req: Request, res: Response) => {
 export const loginUser = async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body
+    console.log({
+      email,
+      password
+    });
 
     const userData = await userModel.findOne({ email })
 

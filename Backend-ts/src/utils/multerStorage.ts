@@ -11,6 +11,7 @@ const clnConfig = () =>
   })
 
 const storage = multer.memoryStorage()
+
 export const upload: Multer = multer({
   storage: storage,
   fileFilter: (req, file, cb) => {

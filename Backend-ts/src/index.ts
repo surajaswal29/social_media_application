@@ -4,8 +4,9 @@ import connectDB from "./config/database"
 import path from "path"
 import router from "./routes"
 import { Server, createServer } from "http"
-import { initSocketConfig } from "./socket"
-import chatModel from "./models/chatModel"
+import cors from "cors"
+// import { initSocketConfig } from "./socket"
+// import chatModel from "./models/chatModel"
 
 dotenv.config()
 
@@ -13,21 +14,28 @@ const app = express()
 const PORT = process.env.PORT || 3000
 const httpServer: Server = createServer(app)
 
+app.use(cors({
+  origin: "*"
+}))
+
 // Express middlewares
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-// connect to Db & socket
-;(async function () {
-  try {
-    await connectDB()
 
-    await initSocketConfig(httpServer)
-    console.log("Socket is connected")
-  } catch (error) {
-    console.error("Error connecting to DB or setting up socket:", error)
-  }
-})()
+connectDB()
+
+// connect to Db & socket
+// ;(async function () {
+//   try {
+//     await connectDB()
+
+//     await initSocketConfig(httpServer)
+//     console.log("Socket is connected")
+//   } catch (error) {
+//     console.error("Error connecting to DB or setting up socket:", error)
+//   }
+// })()
 
 // Serving static files
 app.use(express.static(path.join(__dirname, "../views")))

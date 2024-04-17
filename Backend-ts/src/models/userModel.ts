@@ -1,5 +1,4 @@
 import mongoose from "mongoose"
-import jwt from "jsonwebtoken"
 import bcrypt from "bcrypt"
 import validator from "validator"
 import { GENERATE_LOGIN_TOKEN, USER_VALIDATION_MSG } from "../utils/constant"
