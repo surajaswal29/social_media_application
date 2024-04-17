@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import "./Auth.css"
 import { userResolver } from "../../utility/yupResolver"
+import { cl } from "@vidstack/react/dist/types/vidstack-react.js"
 
 type Props = {
   theme: string
@@ -25,12 +26,21 @@ const Login: FC<Props> = ({ theme, switchForm }) => {
   })
   console.log(theme)
 
-  const formSubmitHandler = (data: { email: string; password: string }) => {
+  const formSubmitHandler = async (data: { email: string; password: string }) => {
     console.log(data)
+    console.log(JSON.stringify(data))
 
-    if (data.email === "abc@gmail.com" && data.password === "12345678") {
-      navigate("/")
-    }
+    const myHeader = new Headers()
+    myHeader.append("Content-Type", "application/json")
+
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_API_URI}/user/login_user`, {
+      method: "POST",
+      headers: myHeader,
+      body: JSON.stringify(data),
+      redirect: "follow",
+    })
+    const result = await response.json()
+    console.log(result)
   }
 
   return (

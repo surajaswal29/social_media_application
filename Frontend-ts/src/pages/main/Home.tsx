@@ -1,4 +1,4 @@
-import { FC } from "react"
+import { FC } from 'react';
 import * as Types from "../../utility/types"
 import Navbar from "../../components/Home/Navbar"
 import Main from "../../components/Home/Main"
